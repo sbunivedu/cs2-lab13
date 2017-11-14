@@ -46,4 +46,13 @@ Call the ```prettyPrintTree``` in the tester ```BSTLearn``` as follows:
 tree.prettyPrintTree(new OutputStreamWriter(System.out));
 ```
 
-Study the code to understand how it works.
+Study the code to understand how it works. When you pretty print a tree from
+you should see a similar tree as follows:
+```
+         /----- O
+ /----- K
+ |       \----- J
+H
+ \----- D
+         \----- A
+```

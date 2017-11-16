@@ -125,7 +125,7 @@ private BSTNode recAVLInsert (BSTNode node, String key, Object element){
 }
 ```
 
-Update the ```delete`` method to use the ```balance``` method:
+Update the ```delete``` method to use the ```balance``` method:
 ```
 public void delete (String key){
   root = recDelete (root, key);

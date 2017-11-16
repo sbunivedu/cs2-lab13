@@ -1,49 +1,46 @@
-# Pretty Print Trees
+# Improve the Tree
+## Task 1 Pretty print tree
 Add the following code to your ```BSTNode``` class.
 
 ```
-public void print(OutputStreamWriter out) throws IOException{
+public void print() {
   if (right != null) {
-    right.recPrint(out, true, "");
+    right.recPrint(true, "");
   }
-  out.write(key+"\n");
+  System.out.println(key);
   if (left != null) {
-    left.recPrint(out, false, "");
+    left.recPrint(false, "");
   }
 }
 
-private void recPrint(OutputStreamWriter out,
-  boolean isRight, String indent) throws IOException {
+private void recPrint(boolean isRight, String indent) {
   if (right != null) {
-    right.recPrint(out, true,
-      indent + (isRight ? "        " : " |      "));
+    right.recPrint(true, indent + (isRight ? "        " : " |      "));
   }
-  out.write(indent);
+  System.out.print(indent);
   if (isRight) {
-    out.write(" /");
+    System.out.print(" /");
   } else {
-    out.write(" \\");
+    System.out.print(" \\");
   }
-  out.write("----- ");
-  out.write(key+"\n");
+  System.out.println("----- "+key);
   if (left != null) {
-    left.recPrint(out, false,
-      indent + (isRight ? " |      " : "        "));
+    left.recPrint(false, indent + (isRight ? " |      " : "        "));
   }
 }
 ```
 
 Update your ```BinSrchTree``` class with the following method.
 ```
-public void prettyPrintTree(OutputStreamWriter out) throws IOException{
-  root.print(out);
-  out.flush();
+public void prettyPrintTree(){
+  root.print();
 }
+
 ```
 
 Call the ```prettyPrintTree``` in the tester ```BSTLearn``` as follows:
 ```
-tree.prettyPrintTree(new OutputStreamWriter(System.out));
+tree.prettyPrintTree();
 ```
 
 Study the code to understand how it works. When you pretty print a tree from
@@ -56,3 +53,6 @@ H
  \----- D
          \----- A
 ```
+
+## Task 2 Move tree methods to BSTNode class
+

@@ -1,6 +1,6 @@
 # Improve the Tree
 ## Task 1 Pretty print tree
-Add the following code to your ```BSTNode``` class.
+Add the following code to your `BSTNode` class.
 
 ```
 public void print() {
@@ -30,7 +30,7 @@ private void recPrint(boolean isRight, String indent) {
 }
 ```
 
-Update your ```BinSrchTree``` class with the following method.
+Update your `BinSrchTree` class with the following method.
 ```
 public void prettyPrintTree(){
   root.print();
@@ -38,7 +38,7 @@ public void prettyPrintTree(){
 
 ```
 
-Call the ```prettyPrintTree``` in the tester ```BSTLearn``` as follows:
+Call the `prettyPrintTree` in the tester `BSTLearn` as follows:
 ```
 tree.prettyPrintTree();
 ```
@@ -58,7 +58,7 @@ H
 We need to extract the tree balancing code into its own method so that it can be
 reused to balance the tree after element removal.
 
-Add the following methods to your ```BinSrchTree```:
+Add the following methods to your `BinSrchTree`:
 ```
 public int balanceFactor( BSTNode node ){
   return height(node.getRight()) - height(node.getLeft());
@@ -98,7 +98,7 @@ private BSTNode balance( BSTNode node ){
 }
 ```
 
-Refactor your ```recAVLInsert```, as follows, to use the ```balance``` method:
+Refactor your `recAVLInsert`, as follows, to use the `balance` method:
 ```
 private BSTNode recAVLInsert (BSTNode node, String key, Object element){
   if (node == null){
@@ -125,7 +125,7 @@ private BSTNode recAVLInsert (BSTNode node, String key, Object element){
 }
 ```
 
-Update the ```delete``` method to use the ```balance``` method:
+Update the `delete` method to use the `balance` method:
 ```
 public void delete (String key){
   root = recDelete (root, key);

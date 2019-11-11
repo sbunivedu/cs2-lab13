@@ -165,21 +165,25 @@ Update the `delete` method to use the `balance` method:
       // is right subtree empty?
       return node.getLeft();
     }else{
-      // promote left child (L) to root
-      // and right child (R) become right child of new root
-      // graft L's right child to the leftmost node in R
-      BSTNode tree = node.getLeft().getRight();
-      BSTNode right =  node.getRight();
-      if (tree != null){
-        // find a place for "tree"
-        BSTNode temp = right;
-        while (temp.getLeft() != null){
-          temp = temp.getLeft();
-        }
-        temp.setLeft(tree);
+      // replace root with the min in the right subtree
+      BSTNode trav = node.getRight();
+      while (trav.getLeft() != null){
+        trav = trav.getLeft();
       }
-      node.getLeft().setRight(right);
-      return node.getLeft();
+      trav.right = removeMin(node.right);
+      trav.left = node.left;
+      trav.height = Math.max(height(trav.left), height(trav.right)) + 1;
+      return balance(trav);
+    }
+  }
+
+  private BSTNode removeMin(BSTNode node){
+    if(node.left == null){
+      return node.right;
+    }else{
+      node.left = removeMin(node.left);
+      node.height = Math.max(height(node.left), height(node.right)) + 1;
+      return balance(node);
     }
   }
 ```

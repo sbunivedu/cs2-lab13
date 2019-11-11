@@ -188,4 +188,29 @@ Update the `delete` method to use the `balance` method:
   }
 ```
 
-Test your implementation thoroughly to make sure it works.
+Test your implementation thoroughly to make sure it works. Here are two example text cases:
+```
+  BinSrchTree tree = new BinSrchTree();
+  keys = "EBHACGIDF";
+  for (char key: keys.toCharArray()) {
+    System.out.println("Inserting: "+key);
+    tree.insert(""+key, ""+key);
+    System.out.println("The height is: "+tree.depth());
+  }
+  // test element removal
+  tree.prettyPrintTree();
+  tree.delete("E");
+  tree.prettyPrintTree();
+
+  tree = new BinSrchTree();
+  keys = "CBDA";
+  for (char key: keys.toCharArray()) {
+    System.out.println("Inserting: "+key);
+    tree.insert(""+key, ""+key);
+    System.out.println("The height is: "+tree.depth());
+  }
+  // test element removal
+  tree.prettyPrintTree();
+  tree.delete("D");
+  tree.prettyPrintTree();
+```

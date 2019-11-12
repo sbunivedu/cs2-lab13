@@ -214,3 +214,34 @@ Test your implementation thoroughly to make sure it works. Here are two example 
   tree.delete("D");
   tree.prettyPrintTree();
 ```
+
+The expected output is as follows:
+```
+         /----- I
+ /----- H
+ |       \----- G
+ |               \----- F
+E
+ |               /----- D
+ |       /----- C
+ \----- B
+         \----- A
+delete E
+         /----- I
+ /----- H
+ |       \----- G
+F
+ |               /----- D
+ |       /----- C
+ \----- B
+         \----- A
+
+ /----- D
+C
+ \----- B
+         \----- A
+delete D
+ /----- C
+B
+ \----- A
+```
